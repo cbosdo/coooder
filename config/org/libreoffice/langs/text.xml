@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:language xmlns:l="http://cedric.bosdonnat.free.fr/coooder/language/"    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xsi:schemaLocation="http://cedric.bosdonnat.free.fr/coooder/language/ language.xsd " 	id="text" name="Text" objectOriented="false" escapeChar=""><l:comments caseSensitive="false"></l:comments><l:symbols></l:symbols><l:quotemarks></l:quotemarks><l:keywords></l:keywords><l:regexps></l:regexps><l:styles></l:styles></l:language>

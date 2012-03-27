@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<oor:component-schema xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oor:name="Coooder" oor:package="org.libreoffice" xml:lang="en-US">
+  <component>
+    <group oor:name="LanguageFiles">
+      <prop oor:name="Path" oor:type="xs:string"/>
+    </group>
+  </component>
+</oor:component-schema>

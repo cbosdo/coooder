@@ -1,0 +1,4 @@
+org.libreoffice.coooder.comp.HighlighterImpl
+org.libreoffice.coooder.comp.LanguageImpl
+org.libreoffice.coooder.comp.theLanguagesManagerImpl
+org.libreoffice.coooder.comp.ui.ParseTriggerImpl

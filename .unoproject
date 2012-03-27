@@ -1,0 +1,12 @@
+#UNO project configuration file
+#Mon Oct 04 15:32:16 CEST 2010
+project.srcdir=/source
+regclassname=org.libreoffice.coooder.comp.RegistrationHandler
+javaversion=java4
+project.sdk=330m7
+project.ooo=OpenOffice.org 3.2
+project.implementation=comp
+project.build=build
+project.language=Java
+project.prefix=org.libreoffice.coooder
+project.idl=/idl

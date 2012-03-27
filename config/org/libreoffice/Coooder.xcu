@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" oor:name="Coooder" oor:package="org.libreoffice">
+  <node oor:name="LanguageFiles">
+    <prop oor:name="Path" oor:type="xs:string">
+      <value>%origin%/langs</value>
+    </prop>
+  </node>
+</oor:component-data>

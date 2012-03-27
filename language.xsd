@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *   LibreOffice extension for syntax highlighting
+ *   Copyright (C) 2008  Cédric Bosdonnat cedric.bosdonnat.ooo@free.fr
+ *
+ *   This library is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU Library General Public
+ *   License as published by the Free Software Foundation; 
+ *   version 2 of the License.
+ *
+ *   This library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *   Library General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this library; if not, write to the Free
+ *   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ -->
+<xsd:schema targetNamespace="http://cedric.bosdonnat.free.fr/coooder/language/" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://cedric.bosdonnat.free.fr/coooder/language/">
+
+    <xsd:complexType name="LanguageType">
+    	<xsd:sequence>
+    		<xsd:element name="objectSplitters" type="SplittersType"
+    			minOccurs="0" maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="comments" type="CommentsType"></xsd:element>
+    		<xsd:element name="symbols" type="SetType"></xsd:element>
+    		<xsd:element name="quotemarks" type="ValuesType"></xsd:element>
+    		<xsd:element name="hardquotes" type="ValuesType"
+    			minOccurs="0" maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="hardquoteEscapes" type="ValuesType"
+    			minOccurs="0" maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="keywords" type="SetType"></xsd:element>
+    		<xsd:element name="regexps" type="RegexpsType"></xsd:element>
+    		<xsd:element name="styles" type="StylesType"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string" use="required"></xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="escapeChar" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="objectOriented" type="xsd:boolean" use="required"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="language" type="LanguageType"></xsd:element>
+
+    <xsd:complexType name="CommentType" abstract="true">
+    	<xsd:sequence>
+    		<xsd:element name="opening" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SingleCommentType">
+    	<xsd:complexContent>
+    		<xsd:extension base="CommentType">
+    			<xsd:attribute name="id" type="xsd:ID"></xsd:attribute>
+    		</xsd:extension>
+    	</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="MultipleCommentType">
+    	<xsd:complexContent>
+    		<xsd:extension base="CommentType">
+    			<xsd:sequence>
+    				<xsd:element name="closing" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+    			</xsd:sequence>
+    		</xsd:extension>
+    	</xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="CommentsType">
+    	<xsd:sequence>
+    		<xsd:element name="single" type="SingleCommentType"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</xsd:element>
+    		<xsd:element name="multiple" type="MultipleCommentType"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="caseSensitive" type="xsd:boolean" use="optional" default="true"></xsd:attribute>
+    </xsd:complexType>
+    
+
+    <xsd:complexType name="ValuesType">
+    	<xsd:sequence>
+    		<xsd:element name="value" type="xsd:string" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SplittersType">
+    	<xsd:sequence>
+    		<xsd:element name="splitter" type="SplitterType" minOccurs="0" maxOccurs="unbounded"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SplitterType">
+		<xsd:attribute name="value" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="id" type="xsd:ID"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="SetType">
+    	<xsd:sequence>
+    		<xsd:element name="set" type="SetElementsType" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SetElementsType">
+    	<xsd:sequence>
+    		<xsd:element name="value" type="xsd:string" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:ID"></xsd:attribute>
+    	<xsd:attribute name="caseSensitive" type="xsd:boolean" default="true" use="optional"></xsd:attribute>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="RegexpsType">
+    	<xsd:sequence>
+    		<xsd:element name="regexp" type="RegexpType" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+
+
+    <xsd:complexType name="RegexpType">
+    	<xsd:attribute name="id" type="xsd:ID"></xsd:attribute>
+    	<xsd:attribute name="value" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+	<xsd:complexType name="StylesType">
+		<xsd:sequence>
+
+			<xsd:element name="style" type="StyleType" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+
+	<xsd:simpleType name="IdStyleType">
+		<xsd:union memberTypes="xsd:IDREF ">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="comment_multi" />
+					<xsd:enumeration value="string" />
+					<xsd:enumeration value="escaped" />
+					<xsd:enumeration value="number" />
+					<xsd:enumeration value="symbol" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+
+    <xsd:complexType name="StyleType">
+    	<xsd:attribute name="element" type="IdStyleType"></xsd:attribute>
+    	<xsd:attribute name="color" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="bold" type="xsd:boolean" use="optional" default="false"></xsd:attribute>
+    	<xsd:attribute name="italic" type="xsd:boolean"  use="optional" default="false"></xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>
+

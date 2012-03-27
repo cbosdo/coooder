@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <file-entry full-path="COOoder.jar" media-type="application/vnd.sun.star.uno-component;type=Java"/>
+  <file-entry full-path="config/org/libreoffice/Coooder.xcu" media-type="application/vnd.sun.star.configuration-data"/>
+  <file-entry full-path="types.rdb" media-type="application/vnd.sun.star.uno-typelibrary;type=RDB"/>
+  <file-entry full-path="config/org/libreoffice/Coooder.xcs" media-type="application/vnd.sun.star.configuration-schema"/>
+  <file-entry full-path="descriptions/descr.txt" media-type="application/vnd.sun.star.package-bundle-description;locale=en"/>
+  <file-entry full-path="Addons.xcu" media-type="application/vnd.sun.star.configuration-data"/>
+</manifest>

@@ -1,0 +1,14 @@
+1.1.2
+	  Fixed some missing properties migrated from GeSHi lang files.
+	  Fixed the windows blocking problem
+1.1.1 
+      Updated language definitions from GeSHi 1.0.8
+      Fix for HTML format reading
+      Fix for some escaped characters problems in strings
+1.1 
+      Performances improvements
+      Progress bar showing the highlighting status
+      Languages are sorted in the listbox
+      Fix for keywords starting with character ?
+1.0
+      First version

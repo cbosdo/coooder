@@ -1,0 +1,6 @@
+COOoder : Syntax highlighting for LibreOffice
+copyright (c) 2008 Cédric Bosdonnat (cedric.bosdonnat.ooo@free.fr)
+
+This extension has been heavily inspired from GeSHi http://qbnz.com/highlighter/
+syntax highlighting class for PHP. I owe many thanks to Nigel McNie for his work.
+

@@ -1,0 +1,65 @@
+/*
+ *   LibreOffice extension for syntax highlighting
+ *   Copyright (C) 2008  Cédric Bosdonnat cedric.bosdonnat.ooo@free.fr
+ *
+ *   This library is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU Library General Public
+ *   License as published by the Free Software Foundation;
+ *   version 2 of the License.
+ *
+ *   This library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *   Library General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this library; if not, write to the Free
+ *   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+#ifndef __org_libreoffice_coooder_xlanguage_idl__
+#define __org_libreoffice_coooder_xlanguage_idl__
+
+#include <org/libreoffice/coooder/HighlightingException.idl>
+module org { module libreoffice { module coooder {
+
+    interface XLanguage {
+
+        [attribute] string Id;
+        [attribute] string Name;
+        [attribute] boolean ObjectOriented;
+        [attribute] string EscapeChar;
+
+        [attribute] sequence< string > CommentSingle;
+        [attribute] sequence< sequence< string > > CommentMulti;
+
+        [attribute] sequence< sequence< string > > Symbols;
+        [attribute] sequence< string > Quotemarks;
+        [attribute] sequence< string> Hardquote;
+        [attribute] sequence< string > HardEscapes;
+
+        [attribute] sequence< sequence< string > > Keywords;
+        [attribute] sequence< string > Regexps;
+
+        [attribute] sequence< string > ObjectSplitters;
+
+        [attribute] boolean CommentCaseSensitivity;
+
+        void setKeywordCaseSensitivity([in] long keywordGroup, [in] boolean caseSensitive);
+        boolean isKeywordCaseSensitive([in] long keywordGroup);
+
+        /**
+            parse a language XML definition file and set the language attributes from its
+            content.
+
+            @param url
+                an LibreOffice URL to the XML file
+
+            @throws HighlightingException
+                if anything happens during the language définition parsing.
+         */
+        void defineFromXml([in] string url) raises (HighlightingException);
+    };
+
+ }; }; };
+#endif
